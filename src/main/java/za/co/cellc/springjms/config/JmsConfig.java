@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.annotation.EnableJms;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @EnableJms
 @Configuration
 public class JmsConfig {	
