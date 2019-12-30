@@ -1,0 +1,33 @@
+package za.co.cellc.springjms.producer;
+
+import javax.jms.Queue;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import za.co.cellc.springjms.model.MessageBean;
+
+@RestController
+public class MessageProducer {
+	
+	@Autowired
+	private Queue queue;
+	
+	@Autowired
+	private JmsTemplate jmsTemplate;
+	
+	@GetMapping(value="/message")
+	public ResponseEntity<String> publish(@RequestBody MessageBean messageBean){
+		
+		jmsTemplate.convertAndSend(queue, messageBean);
+		
+		return new ResponseEntity(messageBean, HttpStatus.OK);
+		
+	}
+
+}
