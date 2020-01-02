@@ -38,9 +38,9 @@ public class MessageProducer {
 		
 	}
 	
-	/*@GetMapping("/")
+	@GetMapping("/")
     public String welcome() {
-        return "login";
-    }*/
+        return "login.html";
+    }
 
 }
