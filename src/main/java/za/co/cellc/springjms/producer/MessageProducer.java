@@ -40,9 +40,9 @@ public class MessageProducer {
 		
 	}
 	
-	@RequestMapping("/login")
+	/*@RequestMapping("/")
     public String welcome( Map<String, Object> model ) {
         return "login.html";
-    }
+    }*/
 
 }
