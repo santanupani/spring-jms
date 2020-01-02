@@ -38,7 +38,7 @@ public class MessageProducer {
 		
 	}
 	
-	@RequestMapping("/")
+	@GetMapping("/")
     public String welcome() {
         return "login";
     }
