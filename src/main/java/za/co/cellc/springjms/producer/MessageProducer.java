@@ -9,6 +9,7 @@ import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import za.co.cellc.springjms.model.MessageBean;
@@ -36,5 +37,10 @@ public class MessageProducer {
 		return null;
 		
 	}
+	
+	@RequestMapping("/")
+    public String welcome() {
+        return "login";
+    }
 
 }
