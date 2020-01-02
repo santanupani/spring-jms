@@ -1,5 +1,7 @@
 package za.co.cellc.springjms.producer;
 
+import java.util.Map;
+
 import javax.jms.Queue;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +40,8 @@ public class MessageProducer {
 		
 	}
 	
-	@GetMapping("/")
-    public String welcome() {
+	@RequestMapping("/")
+    public String welcome( Map<String, Object> model ) {
         return "login.html";
     }
 
