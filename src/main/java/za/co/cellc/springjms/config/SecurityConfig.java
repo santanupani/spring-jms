@@ -15,36 +15,23 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
-	
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http
-			.authorizeRequests()
-				.antMatchers("/").permitAll()
-				.anyRequest().authenticated()
-				.and()	
-			.formLogin()
-				.loginPage("/login")
-				.permitAll()
-				.and()
-			.logout()
-				.permitAll();
-		
-	}
-
-	@Bean
-	@Override
-	public UserDetailsService userDetailsService() {
-		UserDetails user =				
-				User.withUsername("user")
-					.password("password")
-					.roles("USER")
-					.build();
-			
-				
-		return new InMemoryUserDetailsManager(user);
-	}
-	
+	@Override  
+    public void configure(HttpSecurity http) throws Exception {  
+        http  
+            .authorizeRequests()  
+            .anyRequest().authenticated()  
+            .and()  
+            .formLogin()
+            .and()
+            .httpBasic();
+    }  
+    @Override  
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {  
+        auth.inMemoryAuthentication()  
+            .withUser("admin")  
+            .password("{noop}admin") // Spring Security 5 requires specifying the password storage format  
+            .roles("USER");  
+    }
 	
 
 }
