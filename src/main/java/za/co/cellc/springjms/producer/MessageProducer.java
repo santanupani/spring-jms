@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import za.co.cellc.springjms.model.MessageBean;
 
@@ -41,8 +42,10 @@ public class MessageProducer {
 	}
 	
 	@RequestMapping("/")
-    public String welcome( Map<String, Object> model ) {
-        return "login";
+    public ModelAndView welcome() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("login");
+        return modelAndView;
     }
 
 }
