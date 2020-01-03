@@ -22,7 +22,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.authorizeRequests()
 				.antMatchers("/").permitAll()
 				.anyRequest().authenticated()
-				.and()			
+				.and()	
+			.formLogin()
+				.loginPage("/login")
+				.permitAll()
+				.and()
 			.logout()
 				.permitAll();
 		
@@ -36,6 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 					.password("password")
 					.roles("USER")
 					.build();
+			
 				
 		return new InMemoryUserDetailsManager(user);
 	}
