@@ -41,7 +41,7 @@ public class MessageProducer {
 		
 	}
 	
-	@RequestMapping("/login")
+	@RequestMapping("/hello")
     public ModelAndView welcome() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("login");
